@@ -1,5 +1,6 @@
-import { Theme } from "@/lib/theme";
-import create from "zustand";
+import create from 'zustand';
+
+import { Theme } from '@/lib/theme';
 
 interface ThemeState {
   theme: Theme;
@@ -7,7 +8,7 @@ interface ThemeState {
 }
 
 const useThemeStore = create<ThemeState>()((set) => ({
-  theme: "dark",
+  theme: 'dark',
   setTheme: (theme) => set(() => ({ theme })),
 }));
 

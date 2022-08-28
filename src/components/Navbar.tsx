@@ -1,7 +1,7 @@
-import { themes } from "@/lib/theme";
-import useThemeStore from "@/stores/theme.store";
-import { SwatchIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
+import { SwatchIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
+import { themes } from '@/lib/theme';
+import useThemeStore from '@/stores/theme.store';
 
 const Navbar: React.FC = () => {
   const themeStore = useThemeStore();
@@ -23,8 +23,8 @@ const Navbar: React.FC = () => {
               {themes.map((theme) => (
                 <div
                   className={clsx(
-                    "outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2",
-                    themeStore.theme === theme && "outline"
+                    'outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2',
+                    themeStore.theme === theme && 'outline',
                   )}
                   data-set-theme={theme}
                   data-act-class="outline"
