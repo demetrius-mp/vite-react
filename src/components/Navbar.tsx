@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
         <a href="/" className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
       <div className="flex-none gap-3">
-        <div title="Change theme" className="dropdown dropdown-end dropdown-open">
+        <div title="Change theme" className="dropdown dropdown-end">
           <button type="button" tabIndex={0} className="btn gap-1 normal-case btn-ghost">
             <SwatchIcon className="inline-block h-5 w-5 stroke-current md:h-6 md:w-6" />
             <span className="hidden md:inline">Theme</span>
@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
             <div className="grid grid-cols-1 gap-3 p-3">
               {themes.map((theme) => (
                 <button
+                  key={theme}
                   type="button"
                   data-set-theme={theme}
                   data-act-class="outline"

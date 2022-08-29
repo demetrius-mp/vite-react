@@ -33,6 +33,18 @@
 		"react/react-in-jsx-scope": "off",
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
-		"react/prop-types": 0
+		"react/prop-types": 0,
+		"jsx-a11y/label-has-associated-control": ["error", {
+			"required": {
+			  "some": ["nesting", "id"]
+			}
+		  }],
+		  "jsx-a11y/label-has-for": ["error", {
+			"required": {
+			  "some": ["nesting", "id"]
+			}
+		  }],
+		"react/jsx-props-no-spreading": 0
+		
 	}
 }
