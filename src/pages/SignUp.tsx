@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { z } from 'zod';
 
 import Input from '@/components/Input';
@@ -39,7 +40,7 @@ const SignUp: React.FC = () => {
         <span className="text-sm opacity-50">
           Already have an account?
           {' '}
-          <a className="link" href="/sign-in">Sign in</a>
+          <Link className="link" to="/sign-in">Sign in</Link>
         </span>
       </div>
 

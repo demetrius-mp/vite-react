@@ -1,5 +1,6 @@
 import { ChevronDownIcon, SwatchIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 import { themes } from '@/lib/theme';
 import useThemeStore from '@/stores/theme.store';
@@ -10,7 +11,7 @@ const Navbar: React.FC = () => {
   return (
     <div className="navbar bg-base-200">
       <div className="flex-1">
-        <a href="/" className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">daisyUI</Link>
       </div>
       <div className="flex-none gap-3">
         <div title="Change theme" className="dropdown dropdown-end">
@@ -56,7 +57,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
         </div>
-        <a href="/sign-in" className="btn btn-primary">sign in</a>
+        <Link to="/sign-in" className="btn btn-primary">sign in</Link>
       </div>
     </div>
   );
