@@ -6,25 +6,20 @@ import { z } from 'zod';
 
 import Input from '@/components/Input';
 
-const signUpSchema = z.object({
-  name: z.string().min(3),
+const signInSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: 'Passwords must match.',
-  path: ['confirmPassword'],
 });
 
-type FormData = z.infer<typeof signUpSchema>;
+type FormData = z.infer<typeof signInSchema>;
 
-const SignUp: React.FC = () => {
+const SignIn: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValidating },
   } = useForm<FormData>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(signInSchema),
   });
 
   const onSubmit = handleSubmit(async (data) => {
@@ -35,19 +30,17 @@ const SignUp: React.FC = () => {
   return (
     <div className="card card-body bg-base-200 shadow-lg p-6">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold">Sign up</h1>
+        <h1 className="text-3xl font-bold">Sign in</h1>
         <span className="text-sm opacity-50">
-          Already have an account?
+          Don&apos;t have an account?
           {' '}
-          <a className="link" href="/sign-in">Sign in</a>
+          <a className="link" href="/sign-up">Sign up</a>
         </span>
       </div>
 
       <form onSubmit={onSubmit} className="flex flex-col gap-3">
-        <Input register={register} name="name" errorField="name" label="Name" type="text" errors={errors} required minLength={3} />
         <Input register={register} name="email" errorField="email" label="Email" type="email" errors={errors} required />
         <Input register={register} name="password" errorField="password" label="Password" type="password" errors={errors} required minLength={8} />
-        <Input register={register} name="confirmPassword" errorField="confirmPassword" label="Confirm password" type="password" errors={errors} required />
 
         <button
           type="submit"
@@ -56,11 +49,11 @@ const SignUp: React.FC = () => {
             (isSubmitting || isValidating) && 'loading',
           )}
         >
-          sign up
+          sign in
         </button>
       </form>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;
